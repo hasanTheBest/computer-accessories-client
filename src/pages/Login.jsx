@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import auth from "../firebase.init";
 import {
   useSendPasswordResetEmail,
@@ -10,6 +10,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
+import axios from "axios";
+import { useMutation } from "react-query";
 
 const Login = () => {
   // Authentication email and password
@@ -49,13 +51,26 @@ const Login = () => {
     formState: { errors, touchedFields },
   } = useForm(formOptions);
 
+  const {
+    isError,
+    isSuccess,
+    error: queryErr,
+    mutate,
+    data: queryData,
+  } = useMutation((payload) => {
+    return axios.put("/user", payload);
+  });
+
   // Input form submission
   const onSubmit = async ({ email, password }) => {
     await signInWithEmailAndPassword(email, password);
   };
 
   // handle click sign in with Google
-  const handleClickLogInWithGoogle = () => signInWithGoogle();
+  const handleClickLogInWithGoogle = async () => {
+    await signInWithGoogle();
+  };
+
   // handle sending password reset email
   const handleResetPassword = () => {
     if (!emailRef.current.firstElementChild.value) {
@@ -66,16 +81,33 @@ const Login = () => {
     sendPasswordResetEmail(emailRef.current.firstElementChild.value);
   };
 
+  if (userGoogle) {
+    const {
+      user: { displayName, email },
+    } = userGoogle;
+    mutate({ name: displayName, email });
+  }
+
   // if user exist go to the target page
   if (userLogin || userGoogle) {
-    const { displayName, email } = userLogin || userGoogle;
-    // mutate({ name: displayName, email });
     navigate(from, { replace: true });
   }
+
+  // React query state
+  if (isError) {
+    toast.error(queryErr.message);
+  }
+
+  if (isSuccess && queryData.data.token) {
+    localStorage.setItem("accessToken", queryData.data.token);
+    toast.success("Successfully added a user");
+  }
+
   // password reset error
   if (errorReset) {
     toast.error(errorReset.message);
   }
+
   // password reset email sending
   if (sendingReset) {
     toast.success(

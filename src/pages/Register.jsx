@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import auth from "../firebase.init";
 import toast from "react-hot-toast";
 
-const Signup = () => {
+const Register = () => {
   // Authentication
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -61,22 +61,28 @@ const Signup = () => {
   const onSubmit = async ({ name, email, confirmPassword }) => {
     await createUserWithEmailAndPassword(email, confirmPassword);
     await updateProfile({ displayName: name });
+
+    mutate({ name, email });
   };
 
   // handle click sign in with Google
-  const handleClickLogInWithGoogle = () => signInWithGoogle();
+  const handleClickLogInWithGoogle = async () => {
+    await signInWithGoogle();
 
-  if (user || userGoogle) {
-    const { displayName, email } = user || userGoogle;
-    // mutate({ name: displayName, email });
-  }
+    // insert to db
+    console.log(userGoogle);
+    const {
+      user: { displayName, email },
+    } = userGoogle;
+    mutate({ name: displayName, email });
+  };
 
   if (isError) {
     toast.error(queryErr.message);
   }
 
   if (isLoading) {
-    toast.loading("Adding User...");
+    // toast.loading("Adding User...");
   }
 
   if (isSuccess && queryData.data.token) {
@@ -233,4 +239,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Register;
