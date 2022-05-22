@@ -4,7 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../firebase.init";
 
-const pages = ["Home", "Portfolio", "Blog", "Dashboard"];
+const pages = ["Home", "Portfolio", "Blog"];
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);

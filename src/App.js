@@ -32,20 +32,21 @@ function App() {
             path="dashboard"
             element={
               <RequireAuth>
-                <Dashboard>
-                  {/* User */}
-                  <Route index element={<Purchase />} />
-                  <Route path="myOrders" element={<MyOrders />} />
-                  <Route path="addReview" element={<AddReview />} />
-                  <Route path="myProfile" element={<MyProfile />} />
-                  {/* Admin */}
-                  <Route path="addProduct" element={<AddProduct />} />
-                  <Route path="manageOrders" element={<ManageOrders />} />
-                  <Route path="manageProducts" element={<ManageProducts />} />
-                </Dashboard>
+                <Dashboard />
               </RequireAuth>
             }
-          ></Route>
+          >
+            <Route index element={<Purchase />} />
+            <Route path="purchase" element={<Purchase />} />
+            <Route path="myOrders" element={<MyOrders />} />
+            <Route path="addReview" element={<AddReview />} />
+            <Route path="myProfile" element={<MyProfile />} />
+
+            {/* Admin */}
+            <Route path="addProduct" element={<AddProduct />} />
+            <Route path="manageOrders" element={<ManageOrders />} />
+            <Route path="manageProducts" element={<ManageProducts />} />
+          </Route>
           <Route path="blog" element={<Blog />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
