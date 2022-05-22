@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const AccessoryItem = ({
+  _id,
   name,
   image,
   description,
@@ -8,6 +10,9 @@ const AccessoryItem = ({
   quantity,
   price,
 }) => {
+  const navigate = useNavigate();
+  const handleClickOrderNow = (id) => navigate(`/dashboard/purchase/${id}`);
+
   return (
     <div class="card bg-base-100 shadow-xl">
       <figure>
@@ -24,7 +29,10 @@ const AccessoryItem = ({
         <p>{description.slice(0, 120) + "...."}</p>
         <div class="card-actions justify-between items-center">
           <div class="badge badge-outline">{`Unit Price ${price}`}</div>
-          <button className="btn btn-outline btn-secondary self-start">
+          <button
+            className="btn btn-outline btn-secondary self-start"
+            onClick={() => handleClickOrderNow(_id)}
+          >
             Order Now
           </button>
         </div>

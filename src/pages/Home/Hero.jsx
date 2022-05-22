@@ -3,14 +3,19 @@ import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Components/Loading";
 import Error from "../../Components/Error";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const {
     isError,
     isLoading,
     error: queryErr,
     data: queryData,
   } = useQuery("heroBanner", () => axios.get("banner"));
+
+  const handleClickPlaceOrder = (id) => navigate(`/dashboard/purchase/${id}`);
 
   // React query state
   if (isError) {
@@ -22,7 +27,7 @@ const Hero = () => {
   }
 
   const {
-    data: { image, name, description },
+    data: { _id, image, name, description },
   } = queryData;
 
   return (
@@ -32,7 +37,12 @@ const Hero = () => {
         <div>
           <h1 class="text-3xl lg:text-5xl font-bold">{name}</h1>
           <p class="py-6">{description}</p>
-          <button class="btn btn-primary">Place Order</button>
+          <button
+            class="btn btn-primary"
+            onClick={() => handleClickPlaceOrder(_id)}
+          >
+            Place Order
+          </button>
         </div>
       </div>
     </section>

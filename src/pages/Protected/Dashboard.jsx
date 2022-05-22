@@ -14,14 +14,15 @@ const Dashboard = () => {
         <ul className="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
-            <Link to="purchase">My Purchase</Link>
+            <Link to="myOrders">My Order</Link>
+          </li>
+          <li>
+            <Link to="purchase">Purchase</Link>
           </li>
           <li>
             <Link to="myProfile">My Profile</Link>
           </li>
-          <li>
-            <Link to="myOrders">My Order</Link>
-          </li>
+
           <li>
             <Link to="addReview">Add Review</Link>
           </li>
