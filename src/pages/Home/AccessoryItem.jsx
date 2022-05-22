@@ -25,7 +25,7 @@ const AccessoryItem = ({
         <div class="card-actions justify-between items-center">
           <div class="badge badge-outline">{`Unit Price ${price}`}</div>
           <button className="btn btn-outline btn-secondary self-start">
-            Buy Now
+            Order Now
           </button>
         </div>
       </div>

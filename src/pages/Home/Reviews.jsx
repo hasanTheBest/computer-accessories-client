@@ -3,7 +3,6 @@ import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Components/Loading";
 import Error from "../../Components/Error";
-import AccessoryItem from "./AccessoryItem";
 import ReviewItem from "./ReviewItem";
 
 const Reviews = () => {
