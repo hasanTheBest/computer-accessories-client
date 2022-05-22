@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
@@ -16,6 +17,9 @@ const Signup = () => {
   // Authentication
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  // Authentication
+  const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] =
+    useSignInWithGoogle(auth);
 
   const [updateProfile] = useUpdateProfile(auth);
 
@@ -59,8 +63,11 @@ const Signup = () => {
     await updateProfile({ displayName: name });
   };
 
-  if (user) {
-    const { displayName, email } = user;
+  // handle click sign in with Google
+  const handleClickLogInWithGoogle = () => signInWithGoogle();
+
+  if (user || userGoogle) {
+    const { displayName, email } = user || userGoogle;
     // mutate({ name: displayName, email });
   }
 
@@ -209,9 +216,17 @@ const Signup = () => {
 
           <div className="divider">OR</div>
 
-          <button className="btn btn-outline btn-secondary">
+          <button
+            className={`btn btn-outline btn-secondary ${
+              loadingGoogle ? "loading btn-disabled" : ""
+            }`}
+            onClick={handleClickLogInWithGoogle}
+          >
             login with Google
           </button>
+          {errorGoogle && (
+            <span className="-mb-1 text-red-600">{errorGoogle.message}</span>
+          )}
         </div>
       </div>
     </section>

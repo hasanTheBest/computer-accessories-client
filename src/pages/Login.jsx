@@ -1,22 +1,45 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import auth from "../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  // Authentication
+  // Authentication email and password
+  const [signInWithEmailAndPassword, userLogin, loadingLogin, errorLogin] =
+    useSignInWithEmailAndPassword(auth);
+  // Authentication sign in with google
   const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] =
     useSignInWithGoogle(auth);
+  // password reset email sending
+  const [sendPasswordResetEmail, sendingReset, errorReset] =
+    useSendPasswordResetEmail(auth);
+
+  // Reference to DOM elements
+  const emailRef = useRef("");
+
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
   // form validation rules
   const validationSchema = Yup.object().shape({
-    email: Yup.string().required("Email is required").email("Email is invalid"),
+    email: Yup.string()
+      .required("Email is required")
+      .email("Email is invalid")
+      .lowercase()
+      .trim(),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
-      .required("Password is required"),
+      .required("Password is required")
+      .trim(),
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -27,12 +50,38 @@ const Login = () => {
   } = useForm(formOptions);
 
   // Input form submission
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async ({ email, password }) => {
+    await signInWithEmailAndPassword(email, password);
   };
 
   // handle click sign in with Google
   const handleClickLogInWithGoogle = () => signInWithGoogle();
+  // handle sending password reset email
+  const handleResetPassword = () => {
+    if (!emailRef.current.firstElementChild.value) {
+      emailRef.current.firstElementChild.focus();
+      return;
+    }
+
+    sendPasswordResetEmail(emailRef.current.firstElementChild.value);
+  };
+
+  // if user exist go to the target page
+  if (userLogin || userGoogle) {
+    const { displayName, email } = userLogin || userGoogle;
+    // mutate({ name: displayName, email });
+    navigate(from, { replace: true });
+  }
+  // password reset error
+  if (errorReset) {
+    toast.error(errorReset.message);
+  }
+  // password reset email sending
+  if (sendingReset) {
+    toast.success(
+      `Password reset email is sent at ${emailRef.current.firstElementChild.value}`
+    );
+  }
 
   return (
     <section className="py-8 md:py-16">
@@ -45,7 +94,7 @@ const Login = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             {/* Email */}
-            <div className="from-control">
+            <div className="from-control" ref={emailRef}>
               <input
                 type="email"
                 placeholder="Your Email"
@@ -82,10 +131,16 @@ const Login = () => {
               </label>
             </div>
 
+            {errorLogin && (
+              <span className="-mb-1 text-red-600">{errorLogin.message}</span>
+            )}
+
             {/* Submit button */}
             <input
               type="submit"
-              className="btn btn-accent btn-wide self-center"
+              className={`btn btn-accent btn-wide self-center ${
+                loadingLogin ? "loading btn-disabled" : ""
+              }`}
               value="Login"
             />
           </form>
@@ -99,7 +154,10 @@ const Login = () => {
               </Link>
             </span>
             <span>
-              Forget password? <button className="text-accent">Reset</button>
+              Forget password?{" "}
+              <button className="text-accent" onClick={handleResetPassword}>
+                Reset
+              </button>
             </span>
           </div>
 
