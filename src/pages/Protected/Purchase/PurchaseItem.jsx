@@ -1,29 +1,8 @@
-import axios from "axios";
 import React from "react";
-import { useQuery } from "react-query";
-import Loading from "../../../Components/Loading";
-import Error from "../../../Components/Error";
 
-export const PurchaseItem = ({ id }) => {
-  const {
-    isLoading,
-    isError,
-    error: queryErr,
-    data: queryData,
-  } = useQuery(["purchaseById", id], () => axios.get("accessories/" + id));
-
-  // React query state
-  if (isError) {
-    return <Error msg={queryErr.message} />;
-  }
-
-  if (isLoading) {
-    return <Loading />;
-  }
-
-  const {
-    data: { _id, image, name, description, quantity, min_order, price },
-  } = queryData;
+export const PurchaseItem = ({ itemInfo }) => {
+  const { _id, image, name, description, quantity, min_order, price } =
+    itemInfo;
 
   return (
     <div class="card bg-base-100 shadow-xl w-full lg:w-1/2">
