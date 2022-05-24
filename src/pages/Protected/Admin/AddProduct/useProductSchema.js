@@ -24,21 +24,21 @@ function useProductSchema() {
     price: Yup.number().min(0).required("Price is required"),
     min_order: Yup.number().positive().required("Min Order is required"),
     description: Yup.string().required("Description is required"),
-    image: Yup.mixed()
-      .nullable()
-      .required("A file is required")
-      .test(
-        "Fichier taille",
-        "upload file",
-        (value) => !value || (value && value.size <= 1024 * 1024)
-      )
-      .test(
-        "format",
-        "upload file",
-        (value) => !value || (value && SUPPORTED_FORMATS.includes(value.type))
-      ),
+    image: Yup.mixed().required(
+      "A image file is required with jpg, jpeg, png, gif extension"
+    ),
+    // .test(
+    //   "fileSize",
+    //   "File too large",
+    //   (value) => value === null || (value && value.size <= 1000000000)
+    // )
+    // .test(
+    //   "fileFormat",
+    //   "Unsupported file type",
+    //   (value) =>
+    //     value === null || (value && SUPPORTED_FORMATS.includes(value.type))
+    // ),
   });
-
   const formOptions = { resolver: yupResolver(validationSchema) };
 
   return formOptions;

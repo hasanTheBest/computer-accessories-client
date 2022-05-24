@@ -7,8 +7,7 @@ import { useOutletContext } from "react-router-dom";
 import useProductSchema from "./AddProduct/useProductSchema";
 
 // form validation rules
-const AddProduct = ({ user, refetch, userInfo }) => {
-  const { displayName: name, email } = useOutletContext();
+const AddProduct = () => {
   const formOptions = useProductSchema();
 
   // input validation
@@ -27,7 +26,7 @@ const AddProduct = ({ user, refetch, userInfo }) => {
     mutate,
     data: queryData,
   } = useMutation((payload) => {
-    return axios.post("/products", payload);
+    return axios.post("/accessories", payload);
   });
 
   // Query Error
@@ -36,15 +35,39 @@ const AddProduct = ({ user, refetch, userInfo }) => {
   }
 
   if (isSuccess) {
-    if (queryData.data.result.modifiedCount > 0) {
+    if (queryData.data.result.insertedId) {
       toast.success("Successfully post a accessories. Thank you");
-      refetch();
     }
   }
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // mutate(data);
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
+
+    let imageUrl;
+
+    try {
+      const response = await fetch(
+        "https://api.imgbb.com/1/upload?key=" + process.env.REACT_APP_imagebb,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+      if (data.status === 200) {
+        imageUrl = data.data.url;
+      }
+    } catch (err) {
+      toast("Error while uploading image to imagebb." + err.message);
+    }
+
+    // insert to db
+    mutate({
+      ...data,
+      image: imageUrl,
+    });
   };
 
   return (
@@ -143,28 +166,6 @@ const AddProduct = ({ user, refetch, userInfo }) => {
             </label>
           </div>
 
-          {/* Description */}
-          <div className="form-control">
-            <label class="input-group">
-              <span>Description*</span>
-              <input
-                type="text"
-                placeholder="Say something about product"
-                className={`input input-bordered w-full ${
-                  errors.description
-                    ? "input-error"
-                    : touchedFields.description && "input-success"
-                }`}
-                {...register("description")}
-              />
-            </label>
-            <label className="label ml-24">
-              <span className="text-red-600 label-text-alt">
-                {errors.description?.message}
-              </span>
-            </label>
-          </div>
-
           {/* Image */}
           <div className="form-control">
             <label class="input-group">
@@ -182,7 +183,28 @@ const AddProduct = ({ user, refetch, userInfo }) => {
 
             <label className="label ml-24">
               <span className="text-red-600 label-text-alt">
-                {errors.file?.message}
+                {errors.image?.message}
+              </span>
+            </label>
+          </div>
+
+          {/* Description */}
+          <div className="form-control">
+            <label class="input-group">
+              <span>Description*</span>
+              <textarea
+                placeholder="Say something about product"
+                className={`textarea textarea-bordered w-full ${
+                  errors.description
+                    ? "textarea-error"
+                    : touchedFields.description && "textarea-success"
+                }`}
+                {...register("description")}
+              ></textarea>
+            </label>
+            <label className="label ml-24">
+              <span className="text-red-600 label-text-alt">
+                {errors.description?.message}
               </span>
             </label>
           </div>
@@ -193,7 +215,7 @@ const AddProduct = ({ user, refetch, userInfo }) => {
             className={`btn btn-accent btn-wide self-center ${
               isLoading ? "loading" : ""
             }`}
-            value="Update"
+            value="Post"
           />
         </form>
       </div>

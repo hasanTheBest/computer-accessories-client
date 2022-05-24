@@ -19,15 +19,19 @@ const AccessoryItem = ({
         <img src={image} alt={name} />
       </figure>
       <div class="card-body">
-        <h2 class="card-title flex-col items-start">
+        <h2 class="card-title flex-col items-start" title={name}>
           <div className="flex justify-between w-full">
             <div class="badge badge-secondary -mb-2">{`${quantity}pcs`}</div>
             <div class="badge badge-outline">{`Min Order ${min_order}`}</div>
           </div>
-          {name.slice(0, 45) + "..."}
+          {name.length > 45 ? name.slice(0, 45) + "..." : name}
         </h2>
-        <p>{description.slice(0, 120) + "...."}</p>
-        <div class="card-actions justify-between items-center">
+        <p>
+          {description.length > 120
+            ? description.slice(0, 120) + "...."
+            : description}
+        </p>
+        <div class="card-actions justify-between items-center mt-4">
           <div class="badge badge-outline">{`Unit Price ${price}`}</div>
           <button
             className="btn btn-outline btn-secondary self-start"
