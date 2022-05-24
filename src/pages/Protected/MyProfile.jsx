@@ -49,7 +49,11 @@ const MyProfile = () => {
 
       <div class="flex flex-col lg:flex-row gap-8 xl:gap-16">
         <ProfileInfo userInfo={queryData.data} />
-        <UpdateProfile user={user} refetch={refetch} />
+        <UpdateProfile
+          user={user}
+          userInfo={queryData.data}
+          refetch={refetch}
+        />
       </div>
     </div>
   );

@@ -7,8 +7,16 @@ import toast from "react-hot-toast";
 import profileValidationSchema from "./profileValidationSchema";
 
 // form validation rules
-const UpdateProfile = ({ user, refetch }) => {
+const UpdateProfile = ({ user, refetch, userInfo }) => {
   const { displayName: name, email } = user;
+  const {
+    designation: dDesignation,
+    phone: dPhone,
+    education: dEducation,
+    zip: dZip,
+    description: dDescription,
+    address: dAddress,
+  } = userInfo;
   const formOptions = profileValidationSchema();
 
   // input validation
@@ -112,6 +120,7 @@ const UpdateProfile = ({ user, refetch }) => {
             <input
               type="text"
               placeholder="Your Designation"
+              defaultValue={dDesignation}
               className={`input input-bordered w-full ${
                 errors.designation
                   ? "input-error"
@@ -134,6 +143,7 @@ const UpdateProfile = ({ user, refetch }) => {
             <input
               type="text"
               placeholder="Your Phone Number"
+              defaultValue={dPhone}
               className={`input input-bordered w-full ${
                 errors.phone
                   ? "input-error"
@@ -156,6 +166,7 @@ const UpdateProfile = ({ user, refetch }) => {
             <input
               type="text"
               placeholder="Education/Degree"
+              defaultValue={dEducation}
               className={`input input-bordered w-full ${
                 errors.education
                   ? "input-error"
@@ -178,6 +189,7 @@ const UpdateProfile = ({ user, refetch }) => {
             <input
               type="text"
               placeholder="Your Address"
+              defaultValue={dAddress}
               className={`input input-bordered w-full ${
                 errors.address
                   ? "input-error"
@@ -199,7 +211,8 @@ const UpdateProfile = ({ user, refetch }) => {
             </label>
             <input
               type="text"
-              placeholder="6403"
+              placeholder="Zip Code"
+              defaultValue={dZip}
               className={`input input-bordered w-full ${
                 errors.zip
                   ? "input-error"
@@ -222,6 +235,7 @@ const UpdateProfile = ({ user, refetch }) => {
             <textarea
               type="text"
               placeholder="Say something about you"
+              defaultValue={dDescription}
               className={`textarea textarea-bordered w-full ${
                 errors.description
                   ? "textarea-error"
