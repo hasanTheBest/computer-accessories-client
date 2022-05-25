@@ -18,6 +18,7 @@ import ManageOrders from "./pages/Protected/Admin/ManageOrders";
 import ManageProducts from "./pages/Protected/Admin/ManageProducts";
 
 import { Toaster } from "react-hot-toast";
+import ManageUsers from "./pages/Protected/Admin/ManageUsers";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
             <Route path="addProduct" element={<AddProduct />} />
             <Route path="manageOrders" element={<ManageOrders />} />
             <Route path="manageProducts" element={<ManageProducts />} />
+            <Route path="manageUsers" element={<ManageUsers />} />
           </Route>
           <Route path="blog" element={<Blog />} />
           <Route path="register" element={<Register />} />

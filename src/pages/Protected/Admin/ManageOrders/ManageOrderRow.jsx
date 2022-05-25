@@ -77,7 +77,7 @@ const ManageOrderRow = ({
           class={`btn btn-secondary btn-xs ${isLoading ? "loading" : ""}`}
           onClick={handleClickShipOrder}
         >
-          Ship
+          Pay
         </button>
       </th>
     </tr>
