@@ -9,7 +9,8 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import axios from "axios";
 
 // axios default configuration
-axios.defaults.baseURL = "http://localhost:5000/";
+// axios.defaults.baseURL = "http://localhost:5000/";
+axios.defaults.baseURL = "whispering-savannah-71372.herokuapp.com/";
 axios.defaults.headers.common["Authorization"] =
   localStorage.getItem("accessToken");
 axios.defaults.headers.post["Content-Type"] = "application/json";
