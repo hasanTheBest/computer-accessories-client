@@ -23,11 +23,11 @@ const Accessories = () => {
   }
 
   return (
-    <section class="max-w-screen-xl mx-auto py-12 lg:py-24">
+    <section className="max-w-screen-xl mx-auto py-12 lg:py-24">
       <h2 className="text-4xl lg:text-6xl text-center font-semibold mb-8 lg:mb-16">
         Accessories
       </h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
         {queryData.data.map((item) => (
           <AccessoryItem key={item._id} {...item} />
         ))}

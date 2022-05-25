@@ -23,11 +23,11 @@ const Reviews = () => {
   }
 
   return (
-    <section class="max-w-screen-xl mx-auto pb-12 lg:pb-24">
+    <section className="max-w-screen-xl mx-auto pb-12 lg:pb-24">
       <h2 className="text-4xl lg:text-6xl text-center font-semibold mb-8 lg:mb-16">
         Reviews
       </h2>
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-10">
         {queryData.data.map((review) => (
           <ReviewItem key={review._id} {...review} />
         ))}

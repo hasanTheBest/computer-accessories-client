@@ -5,16 +5,16 @@ export const PurchaseItem = ({ itemInfo }) => {
     itemInfo;
 
   return (
-    <div class="card bg-base-100 shadow-xl w-full lg:w-1/2">
+    <div className="card bg-base-100 shadow-xl w-full lg:w-1/2">
       <figure className="w-full">
         <img src={image} alt={name} />
       </figure>
 
-      <div class="card-body w-full">
-        <h2 class="card-title">{name}</h2>
+      <div className="card-body w-full">
+        <h2 className="card-title">{name}</h2>
         <p>{description}</p>
-        <div class="overflow-x-auto">
-          <table class="table w-full table-compact">
+        <div className="overflow-x-auto">
+          <table className="table w-full table-compact">
             <tbody>
               <tr>
                 <th>SKU</th>

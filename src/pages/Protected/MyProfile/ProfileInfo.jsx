@@ -2,13 +2,13 @@ import React from "react";
 
 const ProfileInfo = ({ userInfo }) => {
   return (
-    <div class="card bg-base-100 shadow w-full lg:w-1/2 self-start">
-      <div class="card-body w-full">
+    <div className="card bg-base-100 shadow w-full lg:w-1/2 self-start">
+      <div className="card-body w-full">
         <h2 className="text-2xl font-semibold mb-4">Profile Information</h2>
         <p>{userInfo.description}</p>
 
-        <div class="overflow-x-auto">
-          <table class="table w-full table-compact">
+        <div className="overflow-x-auto">
+          <table className="table w-full table-compact">
             <tbody>
               {Object.entries(userInfo).map(([key, value]) => {
                 if (key === "description" || key === "_id") {

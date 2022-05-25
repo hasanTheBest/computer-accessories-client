@@ -48,17 +48,17 @@ const ManageOrderRow = ({
   return (
     <tr>
       <td>
-        <div class="flex items-center space-x-3">
-          <div class="avatar">
-            <div class="mask mask-squircle w-16 h-16">
+        <div className="flex items-center space-x-3">
+          <div className="avatar">
+            <div className="mask mask-squircle w-16 h-16">
               <img src={image} alt={name} title={name} />
             </div>
           </div>
           <div>
-            <div class="font-bold" title={name}>
+            <div className="font-bold" title={name}>
               {name.length > 20 ? name.slice(0, 20) + "..." : name}
             </div>
-            <div class="text-sm opacity-50">
+            <div className="text-sm opacity-50">
               Ordered: {quantity}pcs, Unit price: {price}
             </div>
           </div>
@@ -67,14 +67,14 @@ const ManageOrderRow = ({
       <td>
         {buyerName}
         <br />
-        <span class="badge badge-ghost badge-sm">{buyerEmail}</span>
+        <span className="badge badge-ghost badge-sm">{buyerEmail}</span>
       </td>
       <td>
-        <button class="btn btn-info btn-outline btn-xs">unpaid</button>
+        <button className="btn btn-info btn-outline btn-xs">unpaid</button>
       </td>
       <th>
         <button
-          class={`btn btn-secondary btn-xs ${isLoading ? "loading" : ""}`}
+          className={`btn btn-secondary btn-xs ${isLoading ? "loading" : ""}`}
           onClick={handleClickShipOrder}
         >
           Pay

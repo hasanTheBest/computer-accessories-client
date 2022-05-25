@@ -31,10 +31,14 @@ const MyProfile = () => {
 
   return (
     <div>
-      <div class="flex flex-col md:flex-row justify-center items-center gap-8 xl:gap-16">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-8 xl:gap-16">
         <div>
           {photoURL ? (
-            <img class="mask mask-hexagon" src={photoURL} alt={displayName} />
+            <img
+              className="mask mask-hexagon"
+              src={photoURL}
+              alt={displayName}
+            />
           ) : (
             <div className="mask mask-hexagon w-24 h-24 bg-accent-focus flex items-center justify-center text-5xl font-bold">
               {displayName.slice(0, 1)}
@@ -42,12 +46,12 @@ const MyProfile = () => {
           )}
         </div>
         <div>
-          <h1 class="text-2xl font-bold">{displayName}</h1>
-          <h6 class="font-bold">{designation ? designation : email}</h6>
+          <h1 className="text-2xl font-bold">{displayName}</h1>
+          <h6 className="font-bold">{designation ? designation : email}</h6>
         </div>
       </div>
 
-      <div class="flex flex-col lg:flex-row gap-8 xl:gap-16">
+      <div className="flex flex-col lg:flex-row gap-8 xl:gap-16">
         <ProfileInfo userInfo={queryData.data} />
         <UpdateProfile
           user={user}

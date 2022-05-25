@@ -35,7 +35,7 @@ const AddProduct = () => {
   }
 
   if (isSuccess) {
-    if (queryData.data.result.insertedId) {
+    if (queryData.data.insertedId) {
       toast.success("Successfully post a accessories. Thank you");
     }
   }
@@ -80,7 +80,7 @@ const AddProduct = () => {
         <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
           {/* Name */}
           <div className="form-control">
-            <label class="input-group">
+            <label className="input-group">
               <span>Name*</span>
               <input
                 type="text"
@@ -102,7 +102,7 @@ const AddProduct = () => {
 
           {/* Quantity */}
           <div className="from-control">
-            <label class="input-group">
+            <label className="input-group">
               <span>Quantity*</span>
               <input
                 type="number"
@@ -124,7 +124,7 @@ const AddProduct = () => {
 
           {/* Min Order */}
           <div className="form-control">
-            <label class="input-group">
+            <label className="input-group">
               <span>Min Order*</span>
               <input
                 type="text"
@@ -146,7 +146,7 @@ const AddProduct = () => {
 
           {/* Price */}
           <div className="form-control">
-            <label class="input-group">
+            <label className="input-group">
               <span>Unit Price*</span>
               <input
                 type="text"
@@ -168,7 +168,7 @@ const AddProduct = () => {
 
           {/* Image */}
           <div className="form-control">
-            <label class="input-group">
+            <label className="input-group">
               <span>Image*</span>
               <input
                 type="file"
@@ -190,7 +190,7 @@ const AddProduct = () => {
 
           {/* Description */}
           <div className="form-control">
-            <label class="input-group">
+            <label className="input-group">
               <span>Description*</span>
               <textarea
                 placeholder="Say something about product"

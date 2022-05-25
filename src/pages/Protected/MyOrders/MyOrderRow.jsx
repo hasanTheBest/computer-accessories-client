@@ -41,17 +41,17 @@ const MyOrderRow = forwardRef(
     return (
       <tr>
         <td>
-          <div class="flex items-center space-x-3">
-            <div class="avatar">
-              <div class="mask mask-squircle w-16 h-16">
+          <div className="flex items-center space-x-3">
+            <div className="avatar">
+              <div className="mask mask-squircle w-16 h-16">
                 <img src={image} alt={name} title={name} />
               </div>
             </div>
             <div>
-              <div class="font-bold" title={name}>
+              <div className="font-bold" title={name}>
                 {name.slice(0, 25) + "..."}{" "}
               </div>
-              <div class="text-sm opacity-50">
+              <div className="text-sm opacity-50">
                 Min Order: {min_order}, Unit price: {price}
               </div>
             </div>
@@ -60,20 +60,20 @@ const MyOrderRow = forwardRef(
         <td>
           {price + "$ * " + quantity + "pcs = " + price * quantity + "$"}
           <br />
-          <span class="badge badge-ghost badge-sm">
+          <span className="badge badge-ghost badge-sm">
             Unit Price, Purchased quantity
           </span>
         </td>
         <td>
-          <button class="btn btn-info btn-outline btn-xs">unpaid</button>
+          <button className="btn btn-info btn-outline btn-xs">unpaid</button>
         </td>
         <th>
           <label
-            class={`btn btn-secondary btn-outline btn-xs ${
+            className={`btn btn-secondary btn-outline btn-xs ${
               isLoading ? "loading" : ""
             }`}
             onClick={handleClickRemoveOrder}
-            for="remove-order-confirm-modal"
+            htmlFor="remove-order-confirm-modal"
           >
             Remove
           </label>

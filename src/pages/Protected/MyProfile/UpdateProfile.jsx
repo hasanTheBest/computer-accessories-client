@@ -66,8 +66,8 @@ const UpdateProfile = ({ user, refetch, userInfo }) => {
         <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
           {/* Name */}
           <div className="form-control">
-            <label class="label">
-              <span class="label-text">Name*</span>
+            <label className="label">
+              <span className="label-text">Name*</span>
             </label>
             <input
               type="text"
@@ -90,8 +90,8 @@ const UpdateProfile = ({ user, refetch, userInfo }) => {
 
           {/* Email */}
           <div className="from-control">
-            <label class="label">
-              <span class="label-text">Email*</span>
+            <label className="label">
+              <span className="label-text">Email*</span>
             </label>
             <input
               type="email"
@@ -114,8 +114,8 @@ const UpdateProfile = ({ user, refetch, userInfo }) => {
 
           {/* Designation */}
           <div className="form-control">
-            <label class="label">
-              <span class="label-text">Designation*</span>
+            <label className="label">
+              <span className="label-text">Designation*</span>
             </label>
             <input
               type="text"
@@ -137,8 +137,8 @@ const UpdateProfile = ({ user, refetch, userInfo }) => {
 
           {/* Phone Number */}
           <div className="form-control">
-            <label class="label">
-              <span class="label-text">Phone Number*</span>
+            <label className="label">
+              <span className="label-text">Phone Number*</span>
             </label>
             <input
               type="text"
@@ -160,8 +160,8 @@ const UpdateProfile = ({ user, refetch, userInfo }) => {
 
           {/* Education */}
           <div className="from-control">
-            <label class="label">
-              <span class="label-text">Education</span>
+            <label className="label">
+              <span className="label-text">Education</span>
             </label>
             <input
               type="text"
@@ -183,8 +183,8 @@ const UpdateProfile = ({ user, refetch, userInfo }) => {
 
           {/* Address */}
           <div className="form-control">
-            <label class="label">
-              <span class="label-text">Address</span>
+            <label className="label">
+              <span className="label-text">Address</span>
             </label>
             <input
               type="text"
@@ -206,8 +206,8 @@ const UpdateProfile = ({ user, refetch, userInfo }) => {
 
           {/* Zip */}
           <div className="form-control">
-            <label class="label">
-              <span class="label-text">Zip Code</span>
+            <label className="label">
+              <span className="label-text">Zip Code</span>
             </label>
             <input
               type="text"
@@ -229,8 +229,8 @@ const UpdateProfile = ({ user, refetch, userInfo }) => {
 
           {/* Description */}
           <div className="form-control">
-            <label class="label">
-              <span class="label-text">Description</span>
+            <label className="label">
+              <span className="label-text">Description</span>
             </label>
             <textarea
               type="text"

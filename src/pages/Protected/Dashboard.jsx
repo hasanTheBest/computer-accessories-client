@@ -24,7 +24,10 @@ const Dashboard = () => {
         <Outlet context={user} />
       </div>
       <div className="drawer-side">
-        <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
+        <label
+          htmlhtmlFor="dashboard-drawer"
+          className="drawer-overlay"
+        ></label>
         <ul className="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>

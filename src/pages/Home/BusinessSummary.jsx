@@ -35,16 +35,18 @@ const stats = [
 
 const BusinessSummary = () => {
   return (
-    <section class="max-w-screen-xl mx-auto pb-12 lg:pb-24">
+    <section className="max-w-screen-xl mx-auto pb-12 lg:pb-24">
       <h2 className="text-3xl lg:text-5xl text-center font-semibold mb-8 lg:mb-16">
         Business Summary
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 shadow max-w-screen-md mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 shadow max-w-screen-md mx-auto">
         {stats.map(({ title, stat, subtitle }, i) => (
-          <div class="stat text-center gap-4 shadow-lg border" key={i}>
-            <div class="stat-title text-secondary font-semibold">{title}</div>
-            <div class="stat-value">{stat}</div>
-            <div class="stat-desc">{subtitle}</div>
+          <div className="stat text-center gap-4 shadow-lg border" key={i}>
+            <div className="stat-title text-secondary font-semibold">
+              {title}
+            </div>
+            <div className="stat-value">{stat}</div>
+            <div className="stat-desc">{subtitle}</div>
           </div>
         ))}
       </div>

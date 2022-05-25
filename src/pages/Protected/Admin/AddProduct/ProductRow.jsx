@@ -51,17 +51,17 @@ const ProductRow = forwardRef(
     return (
       <tr>
         <td>
-          <div class="flex items-center space-x-3">
-            <div class="avatar">
-              <div class="mask mask-squircle w-16 h-16">
+          <div className="flex items-center space-x-3">
+            <div className="avatar">
+              <div className="mask mask-squircle w-16 h-16">
                 <img src={image} alt={name} title={name} />
               </div>
             </div>
             <div>
-              <div class="font-bold" title={name}>
+              <div className="font-bold" title={name}>
                 {name.length > 20 ? name.slice(0, 20) + "..." : name}
               </div>
-              <div class="text-sm opacity-50">
+              <div className="text-sm opacity-50">
                 Stock: {quantity}, Unit price: {price}$
               </div>
             </div>
@@ -73,15 +73,15 @@ const ProductRow = forwardRef(
             : description}
         </td>
         <td>
-          <button class="btn btn-info btn-outline btn-xs">Update</button>
+          <button className="btn btn-info btn-outline btn-xs">Update</button>
         </td>
         <th>
           <label
-            class={`btn btn-secondary btn-outline btn-xs ${
+            className={`btn btn-secondary btn-outline btn-xs ${
               isLoading ? "loading" : ""
             }`}
             onClick={handleClickRemoveOrder}
-            for="remove-product-confirm-modal"
+            htmlFor="remove-product-confirm-modal"
           >
             Delete
           </label>

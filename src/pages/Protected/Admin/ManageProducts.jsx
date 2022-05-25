@@ -30,8 +30,8 @@ const ManageProducts = () => {
   return (
     <>
       <section>
-        <div class="overflow-x-auto w-full">
-          <table class="table w-full">
+        <div className="overflow-x-auto w-full">
+          <table className="table w-full">
             <thead>
               <tr>
                 <th>Name</th>
@@ -58,23 +58,23 @@ const ManageProducts = () => {
         <input
           type="checkbox"
           id="remove-product-confirm-modal"
-          class="modal-toggle"
+          className="modal-toggle"
         />
-        <div class="modal">
-          <div class="modal-box">
-            <h3 class="font-bold text-lg">Are you sure!</h3>
-            <p class="py-4">
+        <div className="modal">
+          <div className="modal-box">
+            <h3 className="font-bold text-lg">Are you sure!</h3>
+            <p className="py-4">
               you want to remove the item from your product collection. We can
               add to the collection by adding product again through add product
               route. Thank you!
             </p>
-            <div class="modal-action">
-              <label for="remove-product-confirm-modal" class="btn">
+            <div className="modal-action">
+              <label htmlFor="remove-product-confirm-modal" className="btn">
                 Cancel
               </label>
               <label
-                for="remove-product-confirm-modal"
-                class="btn btn-error"
+                htmlFor="remove-product-confirm-modal"
+                className="btn btn-error"
                 ref={confirmRef}
               >
                 Delete

@@ -34,12 +34,12 @@ const ManageUserRow = ({ user, refetch }) => {
   return (
     <tr>
       <td>
-        <div class="flex items-center space-x-3">
-          <div class="avatar">
-            <div class="mask mask-squircle w-16 h-16">
+        <div className="flex items-center space-x-3">
+          <div className="avatar">
+            <div className="mask mask-squircle w-16 h-16">
               {user?.image ? (
                 <img
-                  class="mask mask-hexagon"
+                  className="mask mask-hexagon"
                   src={user?.image}
                   alt={user.name}
                 />
@@ -51,22 +51,22 @@ const ManageUserRow = ({ user, refetch }) => {
             </div>
           </div>
           <div>
-            <div class="font-bold" title={user.name}>
+            <div className="font-bold" title={user.name}>
               {user.name}
             </div>
-            <div class="text-sm opacity-50">{user.email}</div>
+            <div className="text-sm opacity-50">{user.email}</div>
           </div>
         </div>
       </td>
       <td>
         {user?.phone}
         <br />
-        <span class="badge badge-ghost badge-sm">{user?.designation}</span>
+        <span className="badge badge-ghost badge-sm">{user?.designation}</span>
       </td>
       <th>
         {user?.role !== "admin" ? (
           <button
-            class={`btn btn-accent btn-outline btn-xs ${
+            className={`btn btn-accent btn-outline btn-xs ${
               isLoading ? "loading" : ""
             }`}
             onClick={() => handleClickMakeAdmin(user._id)}
@@ -74,7 +74,7 @@ const ManageUserRow = ({ user, refetch }) => {
             Make Admin
           </button>
         ) : (
-          <button class="btn btn-xs btn-disabled">Already Admin</button>
+          <button className="btn btn-xs btn-disabled">Already Admin</button>
         )}
       </th>
     </tr>

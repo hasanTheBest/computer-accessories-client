@@ -80,8 +80,8 @@ const OrderNow = ({ itemInfo }) => {
         <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
           {/* Name */}
           <div className="form-control">
-            <label class="label">
-              <span class="label-text">Name*</span>
+            <label className="label">
+              <span className="label-text">Name*</span>
             </label>
             <input
               type="text"
@@ -104,8 +104,8 @@ const OrderNow = ({ itemInfo }) => {
 
           {/* Email */}
           <div className="from-control">
-            <label class="label">
-              <span class="label-text">Email*</span>
+            <label className="label">
+              <span className="label-text">Email*</span>
             </label>
             <input
               type="email"
@@ -128,8 +128,8 @@ const OrderNow = ({ itemInfo }) => {
 
           {/* Phone Number */}
           <div className="form-control">
-            <label class="label">
-              <span class="label-text">Phone Number*</span>
+            <label className="label">
+              <span className="label-text">Phone Number*</span>
             </label>
             <input
               type="text"
@@ -150,8 +150,8 @@ const OrderNow = ({ itemInfo }) => {
 
           {/* Address */}
           <div className="form-control">
-            <label class="label">
-              <span class="label-text">Address*</span>
+            <label className="label">
+              <span className="label-text">Address*</span>
             </label>
             <input
               type="text"
@@ -172,8 +172,8 @@ const OrderNow = ({ itemInfo }) => {
 
           {/* Quantity */}
           <div className="form-control">
-            <label class="label">
-              <span class="label-text">Quantity*</span>
+            <label className="label">
+              <span className="label-text">Quantity*</span>
             </label>
             <input
               type="number"
