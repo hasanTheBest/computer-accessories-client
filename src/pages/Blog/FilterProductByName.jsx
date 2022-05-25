@@ -125,13 +125,17 @@ const FilterProductByName = () => {
           <pre data-prefix=">" class="text-warning">
             <code>
               {`
-                const electronics = products.filter(product => product.category === "electronics")
-                console.log(electronics)
+                function search(products, cateName){
+                  const electronics = products.filter(product => product.category === catName)
+                  return electronics;
+                }
+                console.log(search(products, electronics))
                 `}
             </code>
           </pre>
           <pre data-prefix=">" class="text-success">
             <code>
+              Output:
               {`
                 {
                   title: "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
