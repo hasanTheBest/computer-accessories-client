@@ -49,17 +49,17 @@ const Header = () => {
                   </li>
                   <li onClick={handleClickLogout}>Logout</li>
                   <li onClick={handleClickLogout}>
-                    {user.photoURL ? (
+                    {user?.photoURL ? (
                       <div class="avatar">
                         <div class="w-14 mask mask-hexagon">
-                          <img src={user.photoURL} alt={user.displayName} />
+                          <img src={user?.photoURL} alt={user?.displayName} />
                         </div>
                       </div>
                     ) : (
                       <div class="avatar placeholder">
                         <div class="bg-neutral-focus text-neutral-content rounded-full w-14">
                           <span class="text-3xl">
-                            {user.displayName.slice(0, 1).toUpperCase()}
+                            {user?.displayName.slice(0, 1).toUpperCase()}
                           </span>
                         </div>
                       </div>
@@ -101,14 +101,14 @@ const Header = () => {
                 {user.photoURL ? (
                   <div class="avatar">
                     <div class="w-14 mask mask-hexagon">
-                      <img src={user.photoURL} alt={user.displayName} />
+                      <img src={user?.photoURL} alt={user?.displayName} />
                     </div>
                   </div>
                 ) : (
                   <div class="avatar placeholder">
                     <div class="bg-neutral-focus text-neutral-content rounded-full w-14">
                       <span class="text-3xl">
-                        {user.displayName.slice(0, 1).toUpperCase()}
+                        {user?.displayName.slice(0, 1).toUpperCase()}
                       </span>
                     </div>
                   </div>

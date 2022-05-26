@@ -1,6 +1,8 @@
 # Computer Accessories Client
 
-This project was build with React, Node, Express, DaisyUI [computer accessories(live)](https://car-dealer-assignment.firebaseapp.com/). <br>
+This project was build with React, Node, Express, DaisyUI [computer accessories(live)](https://computer-accessories-5a38d.web.app/). <br>
+
+live: https://computer-accessories-5a38d.web.app/ <br>
 
 server: https://github.com/programming-hero-web-course1/manufacturer-website-server-side-hasanTheBest
 

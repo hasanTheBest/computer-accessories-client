@@ -10,8 +10,6 @@ const PaymentCheckoutForm = ({ orderInfo }) => {
 
   const [clientSecret, setClientSecret] = useState("");
 
-  // console.log("orderInfo", orderInfo);
-
   const { name: clientName, _id, email, quantity, purchasedItem } = orderInfo;
   const { name, price } = purchasedItem;
   const amount = quantity * price;
@@ -72,11 +70,8 @@ const PaymentCheckoutForm = ({ orderInfo }) => {
     });
 
     if (error) {
-      console.log(error?.message);
-      // toast.error(error?.message);
-      // console.log("[error]", error);
+      toast.error(error?.message);
     } else {
-      // toast.success(JSON.stringify(paymentMethod, null, 2));
       console.log("[PaymentMethod]", paymentMethod);
     }
 
@@ -85,11 +80,6 @@ const PaymentCheckoutForm = ({ orderInfo }) => {
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: card,
-          // billing_details: {
-          //   name: clientName,
-          //   email: email,
-          //   accessory_name: name,
-          // },
         },
       });
 
@@ -97,8 +87,7 @@ const PaymentCheckoutForm = ({ orderInfo }) => {
       toast.error(paymentError?.message);
       console.log(error);
     } else {
-      console.log(paymentIntent);
-      // setTransactionId(paymentIntent.id);
+      // console.log(paymentIntent);
 
       //store payment on database
       const payment = {
