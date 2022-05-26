@@ -3,11 +3,21 @@ import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../firebase.init";
+import Loading from "./Loading";
+import Error from "./Error";
 
 const pages = ["Home", "Portfolio", "Blog"];
 
 const Header = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth);
+
+  if (error) {
+    return <Error />;
+  }
+
+  if (loading) {
+    return <Loading />;
+  }
 
   const handleClickLogout = () => signOut(auth);
 
@@ -50,16 +60,17 @@ const Header = () => {
                   <li onClick={handleClickLogout}>Logout</li>
                   <li onClick={handleClickLogout}>
                     {user?.photoURL ? (
-                      <div class="avatar">
-                        <div class="w-14 mask mask-hexagon">
+                      <div className="avatar">
+                        <div className="w-14 mask mask-hexagon">
                           <img src={user?.photoURL} alt={user?.displayName} />
                         </div>
                       </div>
                     ) : (
-                      <div class="avatar placeholder">
-                        <div class="bg-neutral-focus text-neutral-content rounded-full w-14">
-                          <span class="text-3xl">
-                            {user?.displayName.slice(0, 1).toUpperCase()}
+                      <div className="avatar placeholder">
+                        <div className="bg-neutral-focus text-neutral-content rounded-full w-14">
+                          <span className="text-3xl">
+                            {user?.displayName &&
+                              user.displayName.slice(0, 1).toUpperCase()}
                           </span>
                         </div>
                       </div>
@@ -99,15 +110,15 @@ const Header = () => {
                   <button onClick={handleClickLogout}>Logout</button>
                 </li>
                 {user.photoURL ? (
-                  <div class="avatar">
-                    <div class="w-14 mask mask-hexagon">
+                  <div className="avatar">
+                    <div className="w-14 mask mask-hexagon">
                       <img src={user?.photoURL} alt={user?.displayName} />
                     </div>
                   </div>
                 ) : (
-                  <div class="avatar placeholder">
-                    <div class="bg-neutral-focus text-neutral-content rounded-full w-14">
-                      <span class="text-3xl">
+                  <div className="avatar placeholder">
+                    <div className="bg-neutral-focus text-neutral-content rounded-full w-14">
+                      <span className="text-3xl">
                         {user?.displayName.slice(0, 1).toUpperCase()}
                       </span>
                     </div>

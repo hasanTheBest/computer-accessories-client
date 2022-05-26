@@ -16,9 +16,9 @@ const Portfolio = () => {
         </h3>
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
           {/* Frontend */}
-          <div class="card bg-base-100 shadow-xl w-full">
-            <div class="card-body">
-              <h2 class="card-title">Frontend</h2>
+          <div className="card bg-base-100 shadow-xl w-full">
+            <div className="card-body">
+              <h2 className="card-title">Frontend</h2>
               <ul className="menu">
                 <li>JavaScript</li>
                 <li>React</li>
@@ -34,9 +34,9 @@ const Portfolio = () => {
           </div>
 
           {/* Backend */}
-          <div class="card bg-base-100 shadow-xl w-full">
-            <div class="card-body">
-              <h2 class="card-title">Backend</h2>
+          <div className="card bg-base-100 shadow-xl w-full">
+            <div className="card-body">
+              <h2 className="card-title">Backend</h2>
               <ul className="menu">
                 <li>NodeJS</li>
                 <li>ExpressJS</li>
@@ -48,9 +48,9 @@ const Portfolio = () => {
           </div>
 
           {/* Tools */}
-          <div class="card bg-base-100 shadow-xl w-full">
-            <div class="card-body">
-              <h2 class="card-title">Tools</h2>
+          <div className="card bg-base-100 shadow-xl w-full">
+            <div className="card-body">
+              <h2 className="card-title">Tools</h2>
               <ul className="menu">
                 <li>React Router</li>
                 <li>Styled Components</li>
@@ -74,18 +74,18 @@ const Portfolio = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Project 1 recipe explorer */}
-          <div class="indicator w-full">
-            <div class="indicator-item indicator-bottom">
+          <div className="indicator w-full">
+            <div className="indicator-item indicator-bottom">
               <a
-                class="btn btn-primary"
+                className="btn btn-primary"
                 href="https://try-recipes.netlify.app/"
               >
                 Explore
               </a>
             </div>
-            <div class="card border">
-              <div class="card-body">
-                <h2 class="card-title">Recipe Explorer</h2>
+            <div className="card border">
+              <div className="card-body">
+                <h2 className="card-title">Recipe Explorer</h2>
                 <p>
                   A recipe explorer app, built with ReactJS, Material UI and
                   React Router
@@ -95,18 +95,18 @@ const Portfolio = () => {
           </div>
 
           {/* Project 2 Al quran */}
-          <div class="indicator w-full">
-            <div class="indicator-item indicator-bottom">
+          <div className="indicator w-full">
+            <div className="indicator-item indicator-bottom">
               <a
-                class="btn btn-primary"
+                className="btn btn-primary"
                 href="https://hasanthebest.github.io/al-quran-js/"
               >
                 Explore
               </a>
             </div>
-            <div class="card border">
-              <div class="card-body">
-                <h2 class="card-title">Al Quran</h2>
+            <div className="card border">
+              <div className="card-body">
+                <h2 className="card-title">Al Quran</h2>
                 <p>
                   Read and listen Al Quran verse by verse with translation and
                   recitation
@@ -116,36 +116,36 @@ const Portfolio = () => {
           </div>
 
           {/* Project 3 Al quran */}
-          <div class="indicator w-full">
-            <div class="indicator-item indicator-bottom">
+          <div className="indicator w-full">
+            <div className="indicator-item indicator-bottom">
               <a
-                class="btn btn-primary"
+                className="btn btn-primary"
                 href="https://hasanthebest.github.io/fruity-facts/"
               >
                 Explore
               </a>
             </div>
-            <div class="card border">
-              <div class="card-body">
-                <h2 class="card-title">Fruity Facts</h2>
+            <div className="card border">
+              <div className="card-body">
+                <h2 className="card-title">Fruity Facts</h2>
                 <p>The facts and nutrition value of the fruits</p>
               </div>
             </div>
           </div>
 
           {/* Project 4 Al quran */}
-          <div class="indicator w-full">
-            <div class="indicator-item indicator-bottom">
+          <div className="indicator w-full">
+            <div className="indicator-item indicator-bottom">
               <a
-                class="btn btn-primary"
+                className="btn btn-primary"
                 href="https://hasanthebest.github.io/js-wall-clock/"
               >
                 Explore
               </a>
             </div>
-            <div class="card border">
-              <div class="card-body">
-                <h2 class="card-title">JS Wall Clock</h2>
+            <div className="card border">
+              <div className="card-body">
+                <h2 className="card-title">JS Wall Clock</h2>
                 <p>
                   HTML5 structured, CSS3 styled, JS powered full function analog
                   wall Clock

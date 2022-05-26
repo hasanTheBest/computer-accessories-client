@@ -2,9 +2,11 @@ import React from "react";
 
 const PerformanceReactApp = () => {
   return (
-    <article class="card w-full bg-base-100 shadow">
-      <div class="card-body">
-        <h2 class="card-title capitalize">Improve performance of React APP</h2>
+    <article className="card w-full bg-base-100 shadow">
+      <div className="card-body">
+        <h2 className="card-title capitalize">
+          Improve performance of React APP
+        </h2>
         <p className="mb-4">
           React is clever and mature for manipulating DOM. We can make the React
           app more fast and produce maximum performance by considering some

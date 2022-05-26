@@ -2,9 +2,9 @@ import React from "react";
 
 const StateManagementReactApp = () => {
   return (
-    <article class="card w-full bg-base-100 shadow">
-      <div class="card-body">
-        <h2 class="card-title capitalize">State management of React App</h2>
+    <article className="card w-full bg-base-100 shadow">
+      <div className="card-body">
+        <h2 className="card-title capitalize">State management of React App</h2>
         <p className="mb-4">
           In React environment state and props are the main terms to hold and
           carry data component to component. State is just a fancy term for a JS

@@ -2,9 +2,9 @@ import React from "react";
 
 const FilterProductByName = () => {
   return (
-    <article class="card w-full bg-base-100 shadow">
-      <div class="card-body">
-        <h2 class="card-title capitalize">
+    <article className="card w-full bg-base-100 shadow">
+      <div className="card-body">
+        <h2 className="card-title capitalize">
           Filter item from product array by category
         </h2>
         <p className>
@@ -13,7 +13,7 @@ const FilterProductByName = () => {
           with our filter category. We can do this using default filter method
           of array in JavaScript.
         </p>
-        <div class="mockup-code">
+        <div className="mockup-code">
           <pre data-prefix="$">
             <code>
               {`
@@ -122,7 +122,7 @@ const FilterProductByName = () => {
                 `}
             </code>
           </pre>
-          <pre data-prefix=">" class="text-warning">
+          <pre data-prefix=">" className="text-warning">
             <code>
               {`
                 function search(products, cateName){
@@ -133,7 +133,7 @@ const FilterProductByName = () => {
                 `}
             </code>
           </pre>
-          <pre data-prefix=">" class="text-success">
+          <pre data-prefix=">" className="text-success">
             <code>
               Output:
               {`

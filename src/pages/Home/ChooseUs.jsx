@@ -41,10 +41,10 @@ const ChooseUs = () => {
 
       <div className="grid grid-cols-1 gap-8 lg:gap-14  lg:grid-cols-2 shadow max-w-screen-lg mx-auto">
         {choosingReasons.map(({ title, subtitle, description }, i) => (
-          <div class="card w-full shadow-lg bg-base-100" key={i}>
-            <div class="card-body">
-              <h2 class="text-base">{subtitle}</h2>
-              <h2 class="card-title">{title}</h2>
+          <div className="card w-full shadow-lg bg-base-100" key={i}>
+            <div className="card-body">
+              <h2 className="text-base">{subtitle}</h2>
+              <h2 className="card-title">{title}</h2>
               <p>{description}</p>
             </div>
           </div>

@@ -67,7 +67,10 @@ const MyOrderRow = forwardRef(({ order }, ref) => {
       </td>
       <td>
         {order?.paid ? (
-          <button className="btn btn-success btn-xs">paid</button>
+          <>
+            <button className="btn btn-success btn-xs">paid</button> <br />
+            <div className="text-sm opacity-50">ID: {order?.transactionId}</div>
+          </>
         ) : (
           <button className="btn btn-info btn-outline btn-xs">unpaid</button>
         )}

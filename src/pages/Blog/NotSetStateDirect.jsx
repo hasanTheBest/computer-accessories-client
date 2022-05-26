@@ -2,9 +2,9 @@ import React from "react";
 
 const NotSetStateDirect = () => {
   return (
-    <article class="card w-full bg-base-100 shadow">
-      <div class="card-body">
-        <h2 class="card-title capitalize">Direct State Update</h2>
+    <article className="card w-full bg-base-100 shadow">
+      <div className="card-body">
+        <h2 className="card-title capitalize">Direct State Update</h2>
         <p className="mb-4">
           We should never update the state directly. If we change/update state
           directly we loose control of the state across all the components. We

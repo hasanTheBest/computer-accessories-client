@@ -39,9 +39,9 @@ const Payment = () => {
 
   return (
     <section className="max-w-screen-sm mx-auto">
-      <div class="card w-full bg-neutral text-neutral-content mb-8">
-        <div class="card-body items-center text-center">
-          <h2 class="card-title">Hello, {clientName}!</h2>
+      <div className="card w-full bg-neutral text-neutral-content mb-8">
+        <div className="card-body items-center text-center">
+          <h2 className="card-title">Hello, {clientName}!</h2>
           <p>
             We are going to pay for <b>{name}</b> for <b>{quantity}</b>pcs each
             of <b>${price}</b>. Total <b>${quantity * price}</b> will be

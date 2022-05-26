@@ -2,9 +2,9 @@ import React from "react";
 
 const UnitTestReactApp = () => {
   return (
-    <article class="card w-full bg-base-100 shadow">
-      <div class="card-body">
-        <h2 class="card-title capitalize">
+    <article className="card w-full bg-base-100 shadow">
+      <div className="card-body">
+        <h2 className="card-title capitalize">
           Necessity and importance of Unit Test in React App
         </h2>
         <p className="mb-4">

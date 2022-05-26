@@ -45,9 +45,9 @@ const AccessoriesWeProvide = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12  max-w-5xl mx-auto">
         {categories.map(({ name, description }, i) => (
-          <div class="card w-full bg-neutral text-neutral-content" key={i}>
-            <div class="card-body items-center text-center">
-              <h2 class="card-title">{name}</h2>
+          <div className="card w-full bg-neutral text-neutral-content" key={i}>
+            <div className="card-body items-center text-center">
+              <h2 className="card-title">{name}</h2>
               <p>{description}</p>
             </div>
           </div>
