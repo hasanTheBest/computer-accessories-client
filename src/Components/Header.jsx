@@ -7,13 +7,13 @@ import auth from "../firebase.init";
 const pages = ["Home", "Portfolio", "Blog"];
 
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const handleClickLogout = () => signOut(auth);
 
   return (
-    <header>
-      <nav className="navbar bg-base-100 container px-4 lg:px-8 xl:px-16">
+    <header className="bg-base-100">
+      <nav className="navbar container max-w-screen-xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -48,6 +48,23 @@ const Header = () => {
                     <Link to="/dashboard">Dashboard</Link>
                   </li>
                   <li onClick={handleClickLogout}>Logout</li>
+                  <li onClick={handleClickLogout}>
+                    {user.photoURL ? (
+                      <div class="avatar">
+                        <div class="w-14 mask mask-hexagon">
+                          <img src={user.photoURL} alt={user.displayName} />
+                        </div>
+                      </div>
+                    ) : (
+                      <div class="avatar placeholder">
+                        <div class="bg-neutral-focus text-neutral-content rounded-full w-14">
+                          <span class="text-3xl">
+                            {user.displayName.slice(0, 1).toUpperCase()}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+                  </li>
                 </>
               ) : (
                 <li>
@@ -81,6 +98,21 @@ const Header = () => {
                 <li>
                   <button onClick={handleClickLogout}>Logout</button>
                 </li>
+                {user.photoURL ? (
+                  <div class="avatar">
+                    <div class="w-14 mask mask-hexagon">
+                      <img src={user.photoURL} alt={user.displayName} />
+                    </div>
+                  </div>
+                ) : (
+                  <div class="avatar placeholder">
+                    <div class="bg-neutral-focus text-neutral-content rounded-full w-14">
+                      <span class="text-3xl">
+                        {user.displayName.slice(0, 1).toUpperCase()}
+                      </span>
+                    </div>
+                  </div>
+                )}
               </>
             ) : (
               <li>
