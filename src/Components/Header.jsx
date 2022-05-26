@@ -93,7 +93,7 @@ const Header = () => {
           <label
             tabIndex="1"
             className="btn btn-ghost drawer-button"
-            htmlhtmlFor="dashboard-drawer"
+            htmlFor="dashboard-drawer"
             title="Open Drawer"
           >
             <svg

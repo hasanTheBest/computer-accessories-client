@@ -41,14 +41,15 @@ const MyOrders = () => {
                 <th>Name</th>
                 <th>Amount</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th>Actions</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
               {queryData.data.map((item) => (
                 <MyOrderRow
                   key={item._id}
-                  {...item}
+                  order={item}
                   refetch={refetch}
                   ref={confirmRef}
                 />

@@ -23,9 +23,6 @@ const StateManagementReactApp = () => {
           state management tools help us to maintain usability, maintainability,
           scalability, testability and reusability.
         </p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Buy Now</button>
-        </div>
       </div>
     </article>
   );

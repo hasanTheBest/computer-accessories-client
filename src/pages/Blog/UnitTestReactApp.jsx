@@ -25,9 +25,6 @@ const UnitTestReactApp = () => {
           environment. Developer can easily debug, make change quickly to code
           base and migrate to new project.
         </p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Buy Now</button>
-        </div>
       </div>
     </article>
   );

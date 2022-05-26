@@ -19,6 +19,7 @@ import ManageProducts from "./pages/Protected/Admin/ManageProducts";
 
 import { Toaster } from "react-hot-toast";
 import ManageUsers from "./pages/Protected/Admin/ManageUsers";
+import Payment from "./pages/Protected/Payment";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="myOrders" element={<MyOrders />} />
             <Route path="addReview" element={<AddReview />} />
             <Route path="myProfile" element={<MyProfile />} />
+            <Route path="payment/:orderId" element={<Payment />} />
 
             {/* Admin */}
             <Route path="addProduct" element={<AddProduct />} />

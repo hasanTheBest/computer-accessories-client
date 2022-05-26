@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Portfolio = () => {
   return (
-    <section className="max-w-screen-lg mx-auto">
+    <section className="max-w-screen-md mx-auto">
       <div className="text-center p-6 mb-12">
         <h2 className="text-4xl font-semibold">Mahmudul Hasan</h2>
         <p>mhasan.send@gmail.com</p>
@@ -16,7 +16,7 @@ const Portfolio = () => {
         </h3>
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
           {/* Frontend */}
-          <div class="card bg-base-100 shadow-xl">
+          <div class="card bg-base-100 shadow-xl w-full">
             <div class="card-body">
               <h2 class="card-title">Frontend</h2>
               <ul className="menu">
@@ -34,7 +34,7 @@ const Portfolio = () => {
           </div>
 
           {/* Backend */}
-          <div class="card bg-base-100 shadow-xl">
+          <div class="card bg-base-100 shadow-xl w-full">
             <div class="card-body">
               <h2 class="card-title">Backend</h2>
               <ul className="menu">
@@ -48,7 +48,7 @@ const Portfolio = () => {
           </div>
 
           {/* Tools */}
-          <div class="card bg-base-100 shadow-xl">
+          <div class="card bg-base-100 shadow-xl w-full">
             <div class="card-body">
               <h2 class="card-title">Tools</h2>
               <ul className="menu">
@@ -72,16 +72,16 @@ const Portfolio = () => {
           made
         </h3>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Project 1 recipe explorer */}
-          <div class="indicator">
+          <div class="indicator w-full">
             <div class="indicator-item indicator-bottom">
-              <Link
+              <a
                 class="btn btn-primary"
-                to="https://try-recipes.netlify.app/"
+                href="https://try-recipes.netlify.app/"
               >
                 Explore
-              </Link>
+              </a>
             </div>
             <div class="card border">
               <div class="card-body">
@@ -95,14 +95,14 @@ const Portfolio = () => {
           </div>
 
           {/* Project 2 Al quran */}
-          <div class="indicator">
+          <div class="indicator w-full">
             <div class="indicator-item indicator-bottom">
-              <Link
+              <a
                 class="btn btn-primary"
-                to="https://hasanthebest.github.io/al-quran-js/"
+                href="https://hasanthebest.github.io/al-quran-js/"
               >
                 Explore
-              </Link>
+              </a>
             </div>
             <div class="card border">
               <div class="card-body">
@@ -115,15 +115,15 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* Project 2 Al quran */}
-          <div class="indicator">
+          {/* Project 3 Al quran */}
+          <div class="indicator w-full">
             <div class="indicator-item indicator-bottom">
-              <Link
+              <a
                 class="btn btn-primary"
-                to="https://hasanthebest.github.io/fruity-facts/"
+                href="https://hasanthebest.github.io/fruity-facts/"
               >
                 Explore
-              </Link>
+              </a>
             </div>
             <div class="card border">
               <div class="card-body">
@@ -133,15 +133,15 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* Project 2 Al quran */}
-          <div class="indicator">
+          {/* Project 4 Al quran */}
+          <div class="indicator w-full">
             <div class="indicator-item indicator-bottom">
-              <Link
+              <a
                 class="btn btn-primary"
-                to="https://hasanthebest.github.io/js-wall-clock/"
+                href="https://hasanthebest.github.io/js-wall-clock/"
               >
                 Explore
-              </Link>
+              </a>
             </div>
             <div class="card border">
               <div class="card-body">
